@@ -4,3 +4,4 @@ describe('Verify navigated to todo page', () => {
     cy.url().should('include','/todomvc');
   })
 })
+
