@@ -9,7 +9,12 @@ This is a starter repository for cypress based test automation
 npm install
 ```
 
-# To run cypress test
+# To run all cypress test
 ```console
 npm run test
+```
+
+# To run cypress test in different viewport
+```console
+npm run test --config viewportWidth=1280,viewportHeight=720
 ```

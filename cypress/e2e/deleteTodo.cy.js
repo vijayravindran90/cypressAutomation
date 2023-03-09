@@ -1,13 +1,16 @@
-describe('Verify user is able to delete created todo', () => {
-    it('Navigate to todo page', () => {
-      cy.visit('https://demo.playwright.dev/todomvc/')
-      cy.url().should('include','/todomvc');
-      cy.get('.new-todo').click();
-      cy.get('.new-todo').type('shopping');
-      cy.get('.new-todo').type('{enter}');
-      cy.get('[type="checkbox"]').check();
-      cy.get('.clear-completed').click();
-      cy.get('label[data-testid="todo-title"]').should('have.length', '0');
+import {CreateTodo} from "../pages/createTodoPage";
+import {DeleteTodo} from "../pages/deleteTodoPage";
+const createTodo = new CreateTodo();
+const deleteTodo = new DeleteTodo();
+
+describe('Delete Todo', () => {
+
+  beforeEach('navigate to todo page',()=>{
+    createTodo.navigate();
+  })
+    it('should be able to delete the created todo', () => {
+     createTodo.createTodo('shopping',1)
+     deleteTodo.deleteTodo(0);
     })
   })
   
